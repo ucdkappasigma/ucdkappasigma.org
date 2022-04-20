@@ -20,6 +20,14 @@
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);
+			// Resize the banner
+			var window_width = $(window).width();
+			if(window_width < 925) {
+				$("#banner img").width('85%');
+			}
+			else {
+				$("#banner img").width(786);
+			}
 		});
 
 	// Mobile?
@@ -85,4 +93,23 @@
 			}
 		});
 
+	// Body
+		var pageLinks = $('a h2');
+		for(var i = 0; i < pageLinks.length; i++) {
+			pageLinks[i].addEventListener("mouseover", function doAFlip() {
+				this.style.transform = "translateX(20px)";
+			});
+			pageLinks[i].addEventListener("mouseout", function doAFlip() {
+				this.style.transform = "translateX(0px)";
+			});
+		}
+		var socialLinks = $('.icon.major');
+		for(var i = 0; i < socialLinks.length; i++) {
+			socialLinks[i].addEventListener("mouseover", function doAFlip() {
+				this.style.transform = "rotate(-45deg) scale(1.3)";
+			});
+			socialLinks[i].addEventListener("mouseout", function doAFlip() {
+				this.style.transform = "rotate(-45deg) scale(1)";
+			});
+		}
 })(jQuery);
